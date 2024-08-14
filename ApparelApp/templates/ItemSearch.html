@@ -1,0 +1,153 @@
+{% load static %}
+<html>
+<head>
+	<head>
+		<title>Online Apparel Shopping</title>
+		<link rel="icon" href="../static/images/shopping-bag.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+				background-color: white;
+				box-sizing: border-box;
+			}
+	
+			#wrapper {
+				display: flex;
+				align-items: center;
+				height: 70px;
+				width: 100%;
+				background-color: #262626;
+				font-size: 28px;
+			}
+	
+			ul {
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				width: 90%;
+				border: none;
+				height: 100%;
+				list-style: none;
+				font-size: 24px;
+			}
+	
+			ul a {
+				color: black;
+				text-decoration: none;
+			}
+	
+			#menu {
+				height: 80px;
+				width: 100%;
+				display: flex;
+				background-color: #ffffff;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+			form {
+				height: 485px;
+				width: 100%;
+				background-color: #90eebe;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+		
+			}
+			th, td {
+	  padding: 10px;
+	}
+	</style>
+
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["t1"].value;
+	
+	if(x == null || x==""){
+		window.alert("Product name must be enter");
+		document.f1.t1.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1><span style="color: white;">Custom</span><span style="color: rgb(37, 188, 37);">Wear</span></h1>
+    </div>
+    <div id="header">
+        <div id="logo"></div>
+        <div id="slogan"></div>
+    </div>
+    <div id="menu">
+        <ul style="font-style: italic;">
+            <li><a href="{% url 'ItemSearch' %}">Seach Catalogue</a></li>
+            <li><a href="{% url 'TrackOrder' %}">Track Order</a></li>
+            <li><a href="{% url 'Feedback' %}">Feedback</a></li>
+            <li><a href="{% url 'index' %}">Logout</a></li>
+        </ul>
+        <br class="clearfix" />
+    </div>
+		<!-- <div id="splash">
+			<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="130" alt="" />
+		</div> -->	
+			<center>
+<form name="f1" method="post" action={% url 'SearchItemData' %} OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+	<h1><b><i>Catalogue Search Screen</i></b></h1>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+			 <tr><td><font size="3" color="black" style="font-size: 20px;">Product&nbsp;Type&nbsp;</b></td><td><select name="t1">
+			 <option value="-">----</option>
+		<option value="Shirt">Shirt</option>
+		<option value="T-Shirt">T-Shirt</option>
+		<option value="Jeans">Jeans</option>
+		<option value="Pants">Pants</option>
+		<option value="Dress">Dress</option>
+		<option value="Others">Others</option>
+		</select>
+		</td></tr>
+
+		<tr><td><font size="3" color="black" style="font-size: 20px;">Product&nbsp;Style&nbsp;</b></td><td><select name="t2">
+		 <option value="-">----</option>
+		<option value="Bohemian">Bohemian</option>
+		<option value="Vintage">Vintage</option>
+		<option value="Streetwear">Streetwear</option>
+		<option value="Casual">Casual</option>
+		<option value="Formal">Formal</option>
+		<option value="Others">Others</option>
+		</select>
+		</td></tr>
+
+		<!-- <tr><td><font size="3" color="black" style="font-size: 20px;" >Product&nbsp;Brand&nbsp;</b></td><td><select name="t3">
+		 <option value="-">----</option>
+		<option value="Levis">Levis</option>
+		<option value="Adidas">Adidas</option>
+		<option value="Nike">Nike</option>
+		<option value="Fabindia">Fabindia</option>
+		<option value="Biba">Biba</option>
+		<option value="Tommy Hilfiger">Tommy Hilfiger</option>
+		<option value="Others">Others</option>
+		</select>
+		</td></tr> -->
+         	
+		
+         
+			<tr><td></td><td><input style="font-size: 18px;" type="submit" value="Search">
+			</td>
+			</table>
+				</div>	
+					
+				</div>
+				
+	</body>
+</html>

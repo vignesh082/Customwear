@@ -1,0 +1,131 @@
+{% load static %}
+<html>
+<head>
+	<title>Online Apparel Shopping</title>
+    <link rel="icon" href="../static/images/shopping-bag.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: white;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            display: flex;
+            align-items: center;
+            height: 70px;
+            width: 100%;
+            background-color: #262626;
+            font-size: 28px;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 90%;
+            border: none;
+            height: 100%;
+            list-style: none;
+            font-size: 24px;
+        }
+
+        ul a {
+            color: black;
+            text-decoration: none;
+        }
+
+        #menu {
+            height: 80px;
+            width: 100%;
+            display: flex;
+            background-color: #ffffff;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+		form {
+            height: 485px;
+            width: 100%;
+            background-color: #90eebe;
+            display: flex;
+			flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+	
+        }
+		th, td {
+  padding: 15px;
+}
+</style>
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["username"].value;
+	var y=document.forms["f1"]["password"].value;
+	
+	if(x == null || x==""){
+		window.alert("Username must be enter");
+		document.f1.username.focus();
+		return false;
+	}
+	if(y == null || y==""){
+		window.alert("Password must be enter");
+		document.f1.password.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1><span style="color: white;">Custom</span><span style="color: rgb(37, 188, 37);">Wear</span></h1>
+    </div>
+    <div id="header">
+        <div id="logo"></div>
+        <div id="slogan"></div>
+    </div>
+    <div id="menu">
+        <ul style="font-style: italic;">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'ClothesMakerLogin' %}">Clothes Maker Login</a></li>
+            <li><a href="{% url 'Login' %}">User Login</a></li>
+            <!-- <li><a href="{% url 'Register' %}">New User Signup Here</a></li> -->
+            <li><a href="{% url 'About' %}">About us</a></li>
+        </ul>
+        <br class="clearfix" />
+    </div>
+			
+	<!-- <div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="130" alt="" />
+	</div>	 -->
+			<center>
+<form name="f1" method="post" action={% url 'AdminLoginAction' %} OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+   <h1><b><i>Admin Login Screen</i></b></h1>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+			 <tr ><td><font size="3" color="black" style="font-size: 20px;">Username</b></td><td><input type="text" name="username" style="font-family: Comic Sans MS" size="30"/></td></tr>
+         
+		  
+		<tr><td><font size="3" color="black" style="font-size: 20px;">Password</b></td><td><input type="password" name="password" style="font-family: Comic Sans MS" size="30"/></td></tr>
+
+		
+		 
+			<tr><td></td><td><input style="font-size: 18px;" type="submit" value="Login">
+			</td>
+			</table>
+			<br/><br/><br/><br/><br/>
+				</div>	
+					
+				</div>
+				
+	</body>
+</html>
